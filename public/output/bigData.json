@@ -1,4 +1,4 @@
-{
+let bigData = {
   "jsonPaths": {
     "tb3-A01": "output/Roland/TB-3/Factory/A01-Untitled.mp3.json",
     "tb3-D17": "output/Roland/TB-3/Factory/D17-Untitled.mp3.json",
