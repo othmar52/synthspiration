@@ -13,22 +13,44 @@
 <script>
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String
+  data() {
+    return {
+      isRed: true
+    }
   },
-  data: () => ({
-  }),
-  mounted() {
-    console.log("mounted()")
-    let path = `@/assets/output/bigData.json`
+
+mounted() {
+    console.log(bigData)
+    //let recaptchaScript = document.createElement('script')
+    //recaptchaScript.setAttribute('src', './output/bigData.json')
+    //document.head.appendChild(recaptchaScript)
+    //console.log(window.hansi)
+
+/*
+    return new Promise((resolve, reject) => {
+    let script = document.createElement('script')
+    script.onload = () => {
+      resolve(import(someComponent))
+    }
+    script.async = true
+    script.src = './output/bigData.json'
+    document.head.appendChild(script)
+    })
+*/
+
+
+    //console.log(hansi)
+
+    /*
     try {
-      let content = require(path)
-      console.log("success", content)
+      let name = 'bigData.json';
+      let content = require(`../../public/output/${name}`);
+      console.log(content); // eslint-disable-line no-console
       return content
     } catch (e) {
-      console.log("failed to load ")
       return "leider"
     }
+    */
   },
   methods: {
   }
@@ -48,5 +70,9 @@ li {
 }
 a {
   color: #42b983;
+}
+
+.is-red {
+  color: red;
 }
 </style>
