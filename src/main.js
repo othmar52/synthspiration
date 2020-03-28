@@ -24,15 +24,10 @@ window.initialDataLoadInterval = window.setInterval(
     // destroy the interval and init Vue app
     clearInterval(window.initialDataLoadInterval)
     bigDataNode.parentNode.removeChild(bigDataNode);
+    store.dispatch('setBigData', bigData)
 
     new Vue({
       router,
-      data: {
-        bigData: bigData,
-        deviceFilters: bigData.devices,
-        categoryFilters: bigData.categories,
-        creatorFilters: bigData.creators,
-      },
       store,
       render: h => h(App)
     }).$mount('#app')

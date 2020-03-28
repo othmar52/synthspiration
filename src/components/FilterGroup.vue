@@ -31,11 +31,11 @@ export default {
   */
 
   props: {
-    filters: Object,
+    filters: Array,
     group: String
   },
     mounted(){
-        console.log("FilterGroup", this.filters)
+        //console.log("FilterGroup", this.filters)
         //filters = this.filters
     }
 }

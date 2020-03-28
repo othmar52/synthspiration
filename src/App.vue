@@ -6,25 +6,33 @@
       <FilterGroup :filters="deviceFilters" group="device" />
       <FilterGroup :filters="categoryFilters" group="category" />
       <FilterGroup :filters="creatorFilters" group="creator" />
+
     </div>
     <router-view/>
   </div>
 </template>
 <script>
 import FilterGroup from './components/FilterGroup.vue'
-
+import  { mapGetters } from 'vuex'
 export default {
   name: 'App',
   components: {
     FilterGroup
   },
   
-  data: function () {
-    return {
-      deviceFilters: Object,
-      categoryFilters: Object,
-      creatorFilters: Object
-    }
+  computed: {
+      ...mapGetters([
+        'getFilterItems'
+      ]),
+      deviceFilters() {
+        return this.getFilterItems('devices')
+      },
+      categoryFilters() {
+        return this.getFilterItems('categories')
+      },
+      creatorFilters() {
+        return this.getFilterItems('creators')
+      }
   },
   
 /*
@@ -45,9 +53,9 @@ export default {
 
   methods: {
     setData(data) {
-      this.deviceFilters = Object.keys(data.devices)
-      this.categoryFilters = Object.keys(data.categories)
-      this.creatorFilters = Object.keys(data.creators)
+      //this.deviceFilters = Object.keys(data.devices)
+      //this.categoryFilters = Object.keys(data.categories)
+      //this.creatorFilters = Object.keys(data.creators)
     }
   },
 }

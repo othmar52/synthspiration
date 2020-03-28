@@ -1,22 +1,29 @@
 <template>
-  <div class="single__filter">
-    <p>label: {{ label}} </p>
-  </div>
+  <button class="single__filter" v-on:click="filterClick">L:{{ label}}<br/>d:{{direction}}<br/>a:{{active}}</button>
 </template>
 
 <script>
 export default {
   name: 'SingleFilter',
+
+  data: function () {
+    return {
+      direction: "white",
+      active: false
+    }
+  },
   props: {
     group: String,
-    label: String,
-    direction: String
+    label: String
   },
   computed: {
 
   },
   methods: {
-
+    filterClick:function(event) {
+      this.active = this.active ? false : true;
+      this.$store.dispatch('setFilter', this)
+    }
   },
   watch: {
 
