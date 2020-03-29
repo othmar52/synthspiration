@@ -90,15 +90,18 @@ export default {
     },
 
     onDurationChangeListener() {
+        this.$refs.progress.style.transition = 'none'
+        this.$refs.progress.style.width = '0'
         this.drawWaveform(
             this.$refs.waveform,
             this.getCurrentSample.wavPeaks,
             this.waveformSettings.colors.green
         )
     },
-
+    /* TODO proper usage of transitions to have a smooth progress bar */
     onTimeUpdateListener(event) {
-        this.$refs.progress.style.width = event.target.currentTime/event.target.duration*100+'%';
+        this.$refs.progress.style.transition = 'width 200ms linear'
+        this.$refs.progress.style.width = event.target.currentTime/event.target.duration*100+'%'
     },
 
     /* stolen from https://github.com/othmar52/temp-jam/blob/master/jamSplitter/webStemPlayer/data/stemplayer/js/stemplayer.js */
