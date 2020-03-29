@@ -16,7 +16,8 @@
         <div class="seek__clickarea"></div>
     </div>
 
-        <button v-on:click="loadRandomSample">play random sample</button><br>
+        <button v-on:click="loadRandomSample">play random sample ({{allMatchingSamples.length}})</button>
+        <button>TODO: send programchange to synth</button><br>
         {{getCurrentSample.device.vendor }} {{getCurrentSample.device.model }} {{getCurrentSample.displayname }}
         <strong>{{getCurrentSample.patchname}}</strong><br>
     </div>

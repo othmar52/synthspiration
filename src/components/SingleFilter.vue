@@ -1,7 +1,7 @@
 <template>
-  <button :class="`single__filter single__filter-${stateClass}`" v-on:click="filterClick">
-    {{filterLabel}} ({{currentResults}})
-  </button>
+  <a :class="`btn single__filter single__filter-${stateClass}`" v-on:click="filterClick">
+    <nobr>{{filterLabel}} ({{currentResults}})</nobr>
+  </a>
 </template>
 
 <script>
@@ -54,9 +54,11 @@ export default {
 .single__filter {
   border: 1px solid black;
   padding: 1em;
+  flex-shrink: 1;
+  flex-grow: 1;
 }
 
-.single__filter-active {
+.btn.single__filter-active {
   background-color: #333;
   color: #BBB;
 }

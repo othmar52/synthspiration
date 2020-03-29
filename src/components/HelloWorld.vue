@@ -1,7 +1,5 @@
 <template>
-  <div class="hello">
-    <h1>Tryout to load data</h1>
-  </div>
+
 </template>
 
 <script>
