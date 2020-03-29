@@ -1,4 +1,5 @@
 var sampleData = {
+  "devicePrefix": "xid",
   "uniqueIdentifier": "xid-002",
   "patchname": "Soft Pad 1",
   "displayname": "002",

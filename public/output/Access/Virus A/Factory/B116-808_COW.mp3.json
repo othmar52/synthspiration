@@ -1,4 +1,5 @@
 var sampleData = {
+  "devicePrefix": "vir",
   "uniqueIdentifier": "vir-B116",
   "patchname": "808 COW",
   "displayname": "B116",

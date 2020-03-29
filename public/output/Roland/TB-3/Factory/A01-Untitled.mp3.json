@@ -1,4 +1,5 @@
 var sampleData = {
+  "devicePrefix": "tb3",
   "uniqueIdentifier": "tb3-A01",
   "patchname": "Untitled",
   "displayname": "A01",

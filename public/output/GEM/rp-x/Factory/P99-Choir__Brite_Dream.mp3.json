@@ -1,4 +1,5 @@
 var sampleData = {
+  "devicePrefix": "rpx",
   "uniqueIdentifier": "rpx-P99",
   "patchname": "Choir& Brite Dream",
   "displayname": "P99",

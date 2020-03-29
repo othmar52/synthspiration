@@ -1,4 +1,5 @@
 var sampleData = {
+  "devicePrefix": "rpx",
   "uniqueIdentifier": "rpx-P55",
   "patchname": "Flat Rhodes&Pad",
   "displayname": "P55",

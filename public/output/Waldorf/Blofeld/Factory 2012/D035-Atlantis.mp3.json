@@ -1,4 +1,5 @@
 var sampleData = {
+  "devicePrefix": "wb12",
   "uniqueIdentifier": "wb12-D035",
   "patchname": "Atlantis",
   "displayname": "D035",

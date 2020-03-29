@@ -1,4 +1,5 @@
 var sampleData = {
+  "devicePrefix": "s1p",
   "uniqueIdentifier": "s1p-1.3",
   "patchname": "Future Lead",
   "displayname": "1.3",

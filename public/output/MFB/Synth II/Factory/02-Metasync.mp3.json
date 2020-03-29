@@ -1,4 +1,5 @@
 var sampleData = {
+  "devicePrefix": "ms2",
   "uniqueIdentifier": "ms2-02",
   "patchname": "Metasync",
   "displayname": "02",

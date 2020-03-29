@@ -1,4 +1,5 @@
 var sampleData = {
+  "devicePrefix": "mkc",
   "uniqueIdentifier": "mkc-B.88",
   "patchname": "Bit Vox",
   "displayname": "B.88",

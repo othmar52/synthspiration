@@ -1,4 +1,5 @@
 var sampleData = {
+  "devicePrefix": "rpx",
   "uniqueIdentifier": "rpx-P65",
   "patchname": "Choir Split",
   "displayname": "P65",

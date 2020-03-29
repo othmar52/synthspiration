@@ -1,4 +1,5 @@
 var sampleData = {
+  "devicePrefix": "rpx",
   "uniqueIdentifier": "rpx-P01",
   "patchname": "Concert Piano 1",
   "displayname": "P01",

@@ -1,4 +1,5 @@
 var sampleData = {
+  "devicePrefix": "xia",
   "uniqueIdentifier": "xia-001",
   "patchname": "Toxic Bass 1",
   "displayname": "001",

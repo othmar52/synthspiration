@@ -1,4 +1,5 @@
 var sampleData = {
+  "devicePrefix": "wb12",
   "uniqueIdentifier": "wb12-H128",
   "patchname": "Init",
   "displayname": "H128",

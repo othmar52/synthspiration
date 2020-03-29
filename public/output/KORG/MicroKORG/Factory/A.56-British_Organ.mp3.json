@@ -1,4 +1,5 @@
 var sampleData = {
+  "devicePrefix": "mkf",
   "uniqueIdentifier": "mkf-A.56",
   "patchname": "British Organ",
   "displayname": "A.56",

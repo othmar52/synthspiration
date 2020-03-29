@@ -1,4 +1,5 @@
 var sampleData = {
+  "devicePrefix": "wb12",
   "uniqueIdentifier": "wb12-A002",
   "patchname": "70s Pad",
   "displayname": "A002",

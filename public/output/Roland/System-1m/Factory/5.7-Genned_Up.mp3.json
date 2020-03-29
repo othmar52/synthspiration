@@ -1,4 +1,5 @@
 var sampleData = {
+  "devicePrefix": "s1f",
   "uniqueIdentifier": "s1f-5.7",
   "patchname": "Genned Up",
   "displayname": "5.7",

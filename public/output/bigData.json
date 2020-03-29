@@ -2769,5 +2769,106 @@ let bigData = {
         "wb12-H128": "white"
       }
     }
+  },
+  "devicConf": {
+    "tb3": {
+      "uniquePrefix": "tb3",
+      "vendor": "Roland",
+      "model": "TB-3",
+      "yearOfConstruction": 2014,
+      "patchSetName": "Factory",
+      "midiChannel": 9,
+      "sampleJsonPaths": {}
+    },
+    "xia": {
+      "uniquePrefix": "xia",
+      "vendor": "Roland",
+      "model": "JD-Xi",
+      "yearOfConstruction": 2015,
+      "patchSetName": "Factory Analog",
+      "midiChannel": 3,
+      "sampleJsonPaths": {}
+    },
+    "xid": {
+      "uniquePrefix": "xid",
+      "vendor": "Roland",
+      "model": "JD-Xi",
+      "yearOfConstruction": 2015,
+      "patchSetName": "Factory Digital",
+      "midiChannel": 1,
+      "sampleJsonPaths": {}
+    },
+    "rpx": {
+      "uniquePrefix": "rpx",
+      "vendor": "GEM",
+      "model": "rp-x",
+      "yearOfConstruction": 2006,
+      "patchSetName": "Factory",
+      "midiChannel": 4,
+      "sampleJsonPaths": {}
+    },
+    "vir": {
+      "uniquePrefix": "vir",
+      "vendor": "Access",
+      "model": "Virus A",
+      "yearOfConstruction": 1997,
+      "patchSetName": "Factory",
+      "midiChannel": 7,
+      "sampleJsonPaths": {}
+    },
+    "s1f": {
+      "uniquePrefix": "s1f",
+      "vendor": "Roland",
+      "model": "System-1m",
+      "yearOfConstruction": 2014,
+      "patchSetName": "Factory",
+      "midiChannel": 5,
+      "sampleJsonPaths": {}
+    },
+    "mkf": {
+      "uniquePrefix": "mkf",
+      "vendor": "KORG",
+      "model": "MicroKORG",
+      "yearOfConstruction": 2000,
+      "patchSetName": "Factory",
+      "midiChannel": 6,
+      "sampleJsonPaths": {}
+    },
+    "ms2": {
+      "uniquePrefix": "ms2",
+      "vendor": "MFB",
+      "model": "Synth II",
+      "yearOfConstruction": 2004,
+      "patchSetName": "Factory",
+      "midiChannel": 8,
+      "sampleJsonPaths": {}
+    },
+    "mkc": {
+      "uniquePrefix": "mkc",
+      "vendor": "KORG",
+      "model": "MicroKORG",
+      "yearOfConstruction": 2000,
+      "patchSetName": "Cuckoo",
+      "midiChannel": 6,
+      "sampleJsonPaths": {}
+    },
+    "s1p": {
+      "uniquePrefix": "s1p",
+      "vendor": "Roland",
+      "model": "System-1m",
+      "yearOfConstruction": 2014,
+      "patchSetName": "Promars",
+      "midiChannel": 5,
+      "sampleJsonPaths": {}
+    },
+    "wb12": {
+      "uniquePrefix": "wb12",
+      "vendor": "Waldorf",
+      "model": "Blofeld",
+      "yearOfConstruction": 2007,
+      "patchSetName": "Factory 2012",
+      "midiChannel": 11,
+      "sampleJsonPaths": {}
+    }
   }
 }

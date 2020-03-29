@@ -1,4 +1,5 @@
 var sampleData = {
+  "devicePrefix": "mkc",
   "uniqueIdentifier": "mkc-A.16",
   "patchname": "Plinka Box",
   "displayname": "A.16",
