@@ -1,6 +1,6 @@
 <template>
   <button :class="`single__filter single__filter-${stateClass}`" v-on:click="filterClick">
-    {{label}} ({{currentResults}})
+    {{filterLabel}} ({{currentResults}})
   </button>
 </template>
 
@@ -20,13 +20,17 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'getAmountForFilter'
+      'getAmountForFilter',
+      'getLabelForFilter'
     ]),
     stateClass() {
       return (this.active === true) ? 'active' : '';
     },
     currentResults() {
       return this.getAmountForFilter(this.group, this.label)
+    },
+    filterLabel: function() {
+      return this.getLabelForFilter(this.group, this.label)
     }
   },
   methods: {
@@ -34,6 +38,7 @@ export default {
       this.active = this.active ? false : true;
       this.$store.dispatch('setFilter', this)
     }
+
   },
   watch: {
 

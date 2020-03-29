@@ -41,7 +41,9 @@ export default new Vuex.Store({
       }
     },
     resultList: [],
-    currentSample: {}
+    currentSample: {
+      device: {}
+    }
   },
   mutations: {
   },
@@ -82,8 +84,9 @@ export default new Vuex.Store({
             return
           }
           that.state.currentSample = window.sampleData
+          that.state.currentSample.device = that.state.bigData.devicConf[ window.sampleData. devicePrefix ]
           window.sampleData = undefined
-          //console.log(sampleData)
+          
           // now we ar ready to go
           // destroy the interval and init Vue app
           clearInterval(window.sampleDataLoadInterval)
@@ -158,6 +161,12 @@ export default new Vuex.Store({
     },
     getCurrentSample: state => {
       return state.currentSample
+    },
+    getLabelForFilter: (state) => (typeArg, valueArg) => {
+      if( typeArg !== 'devices' ) {
+        return valueArg
+      }
+      return state.bigData['devicConf'][valueArg].model
     }
   }
 })
