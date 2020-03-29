@@ -7,20 +7,23 @@
       <FilterGroup :filters="categoryFilters" group="categories" />
       <FilterGroup :filters="creatorFilters" group="creators" />
 
-      <SampeList />
+      <Player />
+      <SampleList />
     </div>
     <router-view/>
   </div>
 </template>
 <script>
 import FilterGroup from './components/FilterGroup.vue'
-import SampeList from './components/SampeList.vue'
+import Player from './components/Player.vue'
+import SampleList from './components/SampleList.vue'
 import  { mapGetters } from 'vuex'
 export default {
   name: 'App',
   components: {
     FilterGroup,
-    SampeList
+    SampleList,
+    Player
   },
   
   computed: {

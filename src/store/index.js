@@ -40,7 +40,8 @@ export default new Vuex.Store({
         active: []
       }
     },
-    resultList: []
+    resultList: [],
+    currentSample: {}
   },
   mutations: {
   },
@@ -64,6 +65,40 @@ export default new Vuex.Store({
       this.state.activeFilters[filter.group].direction = filter.direction
       context.dispatch('calculateResults')
       return
+    },
+    triggerLoadSample: function (context, sampleKey) {
+      console.log(this.state.bigData.jsonPaths[sampleKey])
+
+
+      let that = this
+      let scriptNode = document.createElement('script')
+      scriptNode.setAttribute('src', this.state.bigData.jsonPaths[sampleKey])
+      document.head.appendChild(scriptNode)
+      
+      window.sampleDataLoadInterval = window.setInterval(
+        function(){
+          if(typeof window.sampleData === "undefined") {
+            // continue loop until we get bigData from external file...
+            return
+          }
+          that.state.currentSample = window.sampleData
+          window.sampleData = undefined
+          //console.log(sampleData)
+          // now we ar ready to go
+          // destroy the interval and init Vue app
+          clearInterval(window.sampleDataLoadInterval)
+          scriptNode.parentNode.removeChild(scriptNode);
+          //store.dispatch('setBigData', bigData)
+
+          //return
+        },
+        5
+      );
+      
+
+
+      //context.dispatch('calculateResults')
+      //return
     },
     calculateResults: function (context) {
       let totalActiveFilters = context.state.activeFilters.devices.active.length
@@ -120,6 +155,9 @@ export default new Vuex.Store({
     },
     getSampleKeys: state => {
       return state.resultList
+    },
+    getCurrentSample: state => {
+      return state.currentSample
     }
   }
 })
