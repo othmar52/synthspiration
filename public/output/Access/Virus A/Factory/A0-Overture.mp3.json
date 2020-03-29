@@ -1,4 +1,4 @@
-{
+var sampleData = {
   "uniqueIdentifier": "vir-A0",
   "patchname": "Overture",
   "displayname": "A0",

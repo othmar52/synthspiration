@@ -1,4 +1,4 @@
-{
+var sampleData = {
   "uniqueIdentifier": "xia-063",
   "patchname": "SirenFX/Mod1",
   "displayname": "063",

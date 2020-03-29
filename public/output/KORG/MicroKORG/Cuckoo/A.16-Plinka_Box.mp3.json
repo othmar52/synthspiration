@@ -1,4 +1,4 @@
-{
+var sampleData = {
   "uniqueIdentifier": "mkc-A.16",
   "patchname": "Plinka Box",
   "displayname": "A.16",

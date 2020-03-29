@@ -1,4 +1,4 @@
-{
+var sampleData = {
   "uniqueIdentifier": "s1f-1.1",
   "patchname": "Bazz",
   "displayname": "1.1",

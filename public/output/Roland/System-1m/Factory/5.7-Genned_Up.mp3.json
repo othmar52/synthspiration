@@ -1,4 +1,4 @@
-{
+var sampleData = {
   "uniqueIdentifier": "s1f-5.7",
   "patchname": "Genned Up",
   "displayname": "5.7",

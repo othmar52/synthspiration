@@ -1,4 +1,4 @@
-{
+var sampleData = {
   "uniqueIdentifier": "s1p-6.4",
   "patchname": "LFO Vowel",
   "displayname": "6.4",

@@ -1,4 +1,4 @@
-{
+var sampleData = {
   "uniqueIdentifier": "xid-001",
   "patchname": "JP8 Strings1",
   "displayname": "001",

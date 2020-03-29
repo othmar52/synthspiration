@@ -1,4 +1,4 @@
-{
+var sampleData = {
   "uniqueIdentifier": "xia-058",
   "patchname": "Analog Kick1",
   "displayname": "058",

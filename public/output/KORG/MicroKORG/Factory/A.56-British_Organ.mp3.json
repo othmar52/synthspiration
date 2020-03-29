@@ -1,4 +1,4 @@
-{
+var sampleData = {
   "uniqueIdentifier": "mkf-A.56",
   "patchname": "British Organ",
   "displayname": "A.56",

@@ -1,4 +1,4 @@
-{
+var sampleData = {
   "uniqueIdentifier": "xid-177",
   "patchname": "Steel Drum",
   "displayname": "177",

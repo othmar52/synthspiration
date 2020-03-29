@@ -1,4 +1,4 @@
-{
+var sampleData = {
   "uniqueIdentifier": "ms2-U49",
   "patchname": "User49",
   "displayname": "U49",

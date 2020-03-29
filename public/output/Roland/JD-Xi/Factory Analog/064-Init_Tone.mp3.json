@@ -1,4 +1,4 @@
-{
+var sampleData = {
   "uniqueIdentifier": "xia-064",
   "patchname": "Init Tone",
   "displayname": "064",

@@ -1,4 +1,4 @@
-{
+var sampleData = {
   "uniqueIdentifier": "mkf-A.13",
   "patchname": "Unison Saw Lead",
   "displayname": "A.13",
