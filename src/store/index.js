@@ -34,10 +34,6 @@ export default new Vuex.Store({
       categories: {
         direction: "white",
         active: []
-      },
-      creators: {
-        direction: "white",
-        active: []
       }
     },
     resultList: [],
@@ -106,7 +102,6 @@ export default new Vuex.Store({
     calculateResults: function (context) {
       let totalActiveFilters = context.state.activeFilters.devices.active.length
       totalActiveFilters += context.state.activeFilters.categories.active.length
-      totalActiveFilters += context.state.activeFilters.creators.active.length
       if (totalActiveFilters === 0) {
         // no filter set - return all
         context.state.resultList = Object.keys(context.state.bigData.jsonPaths)
@@ -115,7 +110,7 @@ export default new Vuex.Store({
 
       let resultLists = []
 
-      for (let subject of ["devices", "categories", "creators"]) {
+      for (let subject of ["devices", "categories"]) {
         let filter = context.state.activeFilters[subject]
         if (filter.active.length === 0) {
           continue

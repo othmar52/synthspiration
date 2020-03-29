@@ -56,7 +56,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   padding: 10px;
-
+  justify-content: center;
 }
 
 .filter__header {

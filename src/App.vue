@@ -3,6 +3,7 @@
     <FilterSection />
     <div class="content">
       <h1>Synthspiration</h1>
+      <RandomButton />
       <Player />
     </div>
     <router-view/>
@@ -12,12 +13,14 @@
 import FilterSection from './components/FilterSection.vue'
 import Player from './components/Player.vue'
 import SampleList from './components/SampleList.vue'
+import RandomButton from './components/RandomButton.vue'
 import  { mapGetters } from 'vuex'
 export default {
   name: 'App',
   components: {
     FilterSection,
     SampleList,
+    RandomButton,
     Player
   }
 }
@@ -76,8 +79,6 @@ button, .btn {
 	font-weight:bold;
 	padding:13px 32px;
 	text-decoration:none;
-  border: 2px sold black;
-
 }
 button:hover, .btn:hover {
 	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
@@ -86,6 +87,10 @@ button:hover, .btn:hover {
 button:active, .btn:active {
 	position:relative;
 	top:1px;
+}
+
+.amount {
+  color: #555;
 }
 
 </style>

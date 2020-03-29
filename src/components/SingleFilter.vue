@@ -1,6 +1,6 @@
 <template>
   <a :class="`btn single__filter single__filter-${stateClass}`" v-on:click="filterClick">
-    <nobr>{{filterLabel}} ({{currentResults}})</nobr>
+    <nobr>{{filterLabel}} <span class="amount">({{currentResults}})</span></nobr>
   </a>
 </template>
 
@@ -52,10 +52,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 .single__filter {
-  border: 1px solid black;
   padding: 1em;
-  flex-shrink: 1;
+  flex-basis: 80px;
   flex-grow: 1;
+  margin: 3px;
 }
 
 .btn.single__filter-active {

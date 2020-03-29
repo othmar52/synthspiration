@@ -2,7 +2,6 @@
   <div class="filter__section">
     <FilterGroup :filters="deviceFilters" group="devices" />
     <FilterGroup :filters="categoryFilters" group="categories" />
-    <FilterGroup :filters="creatorFilters" group="creators" />
   </div>
 </template>
 <script>
@@ -22,9 +21,6 @@ export default {
       },
       categoryFilters() {
         return this.getFilterItems('categories')
-      },
-      creatorFilters() {
-        return this.getFilterItems('creators')
       }
   },
 }

@@ -1,6 +1,5 @@
 <template>
     <div class="sample__player line">
-
     <div class="line__wave" id="line__wave0">
         <audio
             @durationchange='onDurationChangeListener'
@@ -15,11 +14,11 @@
         <div class="seek__progress" ref="progress"></div>
         <div class="seek__clickarea"></div>
     </div>
-
-        <button v-on:click="loadRandomSample">play random sample ({{allMatchingSamples.length}})</button>
+    <h3>{{getCurrentSample.device.vendor }} - {{getCurrentSample.device.model }} </h3>
+        <h1>{{getCurrentSample.displayname }}: {{getCurrentSample.patchname}}</h1>
         <button>TODO: send programchange to synth</button><br>
-        {{getCurrentSample.device.vendor }} {{getCurrentSample.device.model }} {{getCurrentSample.displayname }}
-        <strong>{{getCurrentSample.patchname}}</strong><br>
+        {{getCurrentSample.categories.join(', ') }}
+        
     </div>
 </template>
 <script>
@@ -75,20 +74,11 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'getSampleKeys',
       'triggerLoadSample',
       'getCurrentSample',
-    ]),
-    allMatchingSamples() {
-      return this.getSampleKeys
-    }
+    ])
   },
   methods: {
-    loadRandomSample(event) {
-      let items = this.getSampleKeys
-      let item = items[Math.floor(Math.random() * items.length)];
-      this.$store.dispatch('triggerLoadSample', item)
-    },
 
     onDurationChangeListener() {
         this.$refs.progress.style.transition = 'none'
@@ -175,7 +165,6 @@ export default {
 .sample__player {
     width: 100%;
     height: 100px;
-    background-color: tomato;
 }
 
 canvas {
