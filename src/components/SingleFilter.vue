@@ -1,8 +1,11 @@
 <template>
-  <button :class="`single__filter single__filter-${stateClass}`" v-on:click="filterClick">L:{{ label}}<br/>a:{{active}}</button>
+  <button :class="`single__filter single__filter-${stateClass}`" v-on:click="filterClick">
+    {{label}} ({{currentResults}})
+  </button>
 </template>
 
 <script>
+import  { mapGetters } from 'vuex'
 export default {
   name: 'SingleFilter',
 
@@ -16,9 +19,15 @@ export default {
     label: String
   },
   computed: {
+    ...mapGetters([
+      'getAmountForFilter'
+    ]),
     stateClass() {
       return (this.active === true) ? 'active' : '';
     },
+    currentResults() {
+      return this.getAmountForFilter(this.group, this.label)
+    }
   },
   methods: {
     filterClick:function(event) {

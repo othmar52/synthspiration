@@ -4,7 +4,7 @@
     <p>
     <strong>{{group}}</strong>
     <br>
-    <button v-on:click="filterDirectionToggle">{{direction}}</button><br>
+    <button v-on:click="filterDirectionToggle">{{direction}}list</button>
     <button v-on:click="resetFilters">reset</button>
     </p>
     </div>
