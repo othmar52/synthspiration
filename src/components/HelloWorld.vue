@@ -1,12 +1,6 @@
 <template>
   <div class="hello">
     <h1>Tryout to load data</h1>
-    <h2>The challenge</h2>
-    <ul>
-      <li>having sample data during development</li>
-      <li>load all those jsons on demand via file:// protocol</li>
-      <li>exclude sample data from webpack</li>
-    </ul>
   </div>
 </template>
 

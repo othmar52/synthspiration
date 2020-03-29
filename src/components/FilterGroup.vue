@@ -3,6 +3,9 @@
     <div class="single__filter">
     <p>
     <strong>{{group}}</strong>
+    <br>
+    <button v-on:click="filterDirectionToggle">{{direction}}</button><br>
+    <button v-on:click="resetFilters">reset</button>
     </p>
     </div>
     <SingleFilter
@@ -21,23 +24,31 @@ export default {
     components: {
         SingleFilter
     },
-    /*
+    
   data: function () {
     return {
-    filters: Object,
-    group: String
+        direction: "white",
+        type: this.group
     }
   },
-  */
 
   props: {
     filters: Array,
     group: String
   },
-    mounted(){
-        //console.log("FilterGroup", this.filters)
-        //filters = this.filters
+  methods: {
+    filterDirectionToggle:function(event) {
+      this.direction = this.direction === 'white' ? 'black' : 'white';
+      this.$store.dispatch('invertFilter', this)
+    },
+    resetFilters:function(event) {
+      // TODO: should we do a check if child is "SingleFilter"?
+      for(let c of this.$children) {
+        c.active = false
+        this.$store.dispatch('setFilter', c)
+      }
     }
+  }
 }
 </script>
 

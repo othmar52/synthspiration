@@ -1,5 +1,5 @@
 <template>
-  <button class="single__filter" v-on:click="filterClick">L:{{ label}}<br/>d:{{direction}}<br/>a:{{active}}</button>
+  <button :class="`single__filter single__filter-${stateClass}`" v-on:click="filterClick">L:{{ label}}<br/>a:{{active}}</button>
 </template>
 
 <script>
@@ -8,7 +8,6 @@ export default {
 
   data: function () {
     return {
-      direction: "white",
       active: false
     }
   },
@@ -17,7 +16,9 @@ export default {
     label: String
   },
   computed: {
-
+    stateClass() {
+      return (this.active === true) ? 'active' : '';
+    },
   },
   methods: {
     filterClick:function(event) {
@@ -39,5 +40,10 @@ export default {
 .single__filter {
   border: 1px solid black;
   padding: 1em;
+}
+
+.single__filter-active {
+  background-color: #333;
+  color: #BBB;
 }
 </style>

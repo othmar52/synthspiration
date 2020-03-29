@@ -3,21 +3,24 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-      <FilterGroup :filters="deviceFilters" group="device" />
-      <FilterGroup :filters="categoryFilters" group="category" />
-      <FilterGroup :filters="creatorFilters" group="creator" />
+      <FilterGroup :filters="deviceFilters" group="devices" />
+      <FilterGroup :filters="categoryFilters" group="categories" />
+      <FilterGroup :filters="creatorFilters" group="creators" />
 
+      <SampeList />
     </div>
     <router-view/>
   </div>
 </template>
 <script>
 import FilterGroup from './components/FilterGroup.vue'
+import SampeList from './components/SampeList.vue'
 import  { mapGetters } from 'vuex'
 export default {
   name: 'App',
   components: {
-    FilterGroup
+    FilterGroup,
+    SampeList
   },
   
   computed: {
