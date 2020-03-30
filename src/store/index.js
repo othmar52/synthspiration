@@ -44,6 +44,7 @@ function shuffle(a) {
 export default new Vuex.Store({
   state: {
     bigData: {},
+    nextSampleKey: '',
     activeFilters: {
       devices: {
         direction: "white",
@@ -104,6 +105,11 @@ export default new Vuex.Store({
           // destroy the interval and init Vue app
           clearInterval(window.sampleDataLoadInterval)
           scriptNode.parentNode.removeChild(scriptNode);
+
+          // move from beginning to end
+          let nextKey = that.state.resultList.shift()
+          that.state.nextSampleKey = nextKey
+          that.state.resultList.push(nextKey)
         },
         5
       );
@@ -114,6 +120,10 @@ export default new Vuex.Store({
       if (totalActiveFilters === 0) {
         // no filter set - return all
         context.state.resultList = Object.keys(context.state.bigData.jsonPaths)
+        // move from beginning to end
+        let nextKey = context.state.resultList.shift()
+        context.state.nextSampleKey = nextKey
+        context.state.resultList.push(nextKey)
         return
       }
 
@@ -139,6 +149,10 @@ export default new Vuex.Store({
         }
       }
       context.state.resultList = intersection(resultLists)
+      // move from beginning to end
+      let nextKey = context.state.resultList.shift()
+      context.state.nextSampleKey = nextKey
+      context.state.resultList.push(nextKey)
     }
   },
   modules: {
@@ -171,6 +185,9 @@ export default new Vuex.Store({
         return valueArg
       }
       return state.bigData['devicConf'][valueArg].model
+    },
+    getNextSampleKey: state => {
+      return state.nextSampleKey
     }
   }
 })

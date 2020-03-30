@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+      <!--div id="nav">
+        <router-link to="/">Random</router-link> |
+        <router-link to="/patchlist">patchlist</router-link>
+      </div-->
     <router-view/>
   </div>
 </template>

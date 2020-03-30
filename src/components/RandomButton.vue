@@ -1,5 +1,8 @@
 <template>
+<div>
+    <router-link :to="`/sample/${getNextSampleKey}`">next: {{ getNextSampleKey }}</router-link>
     <a class="btn btn-random" v-on:click="loadRandomSample">random <span class="amount">({{allMatchingSamples.length}})</span></a>
+  </div>
 </template>
 <script>
 import  { mapGetters } from 'vuex'
@@ -8,6 +11,7 @@ export default {
   computed: {
     ...mapGetters([
       'getSampleKeys',
+      'getNextSampleKey',
       'triggerLoadSample',
       'getCurrentSample',
     ]),
@@ -17,9 +21,7 @@ export default {
   },
   methods: {
     loadRandomSample(event) {
-      let items = this.getSampleKeys
-      let item = items[Math.floor(Math.random() * items.length)];
-      this.$store.dispatch('triggerLoadSample', item)
+      this.$store.dispatch('triggerLoadSample', this.$store.getters.getNextSampleKey)
     }
   }
 }
