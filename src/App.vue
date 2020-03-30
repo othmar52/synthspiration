@@ -2,7 +2,7 @@
   <div id="app">
     <FilterSection />
     <div class="content">
-      <h1>Synthspiration</h1>
+      <h1 class="logo">Synthspiration</h1>
       <RandomButton />
       <Player />
     </div>
@@ -33,7 +33,7 @@ html, body, #app {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #fff;
-  background-color: #1f2935;
+  background-color: #03030a;
   height: calc(100% - 10px);
 }
 
@@ -50,11 +50,15 @@ html, body, #app {
 }
 
 h1 {
-  text-transform: uppercase;
   color: #36506f;
   font-weight: bold;
   font-size: 3em;
 }
+h1.logo {
+  color: #07101b;
+  text-transform: uppercase;
+}
+
 #nav {
   padding: 30px;
 }
@@ -71,7 +75,7 @@ h1 {
 
 
 button, .btn {
-	background-color: #111;
+	background-color: #07101b;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
@@ -81,8 +85,7 @@ button, .btn {
 	text-decoration:none;
 }
 button:hover, .btn:hover {
-	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
-	background-color:#408c99;
+	background-color:#0a1a2d;
 }
 button:active, .btn:active {
 	position:relative;

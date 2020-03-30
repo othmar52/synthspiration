@@ -6,6 +6,7 @@
             @timeupdate='onTimeUpdateListener'
             id="player0"
             class="player"
+            ref="audio"
             :src="getCurrentSample.samplepath" autoplay>
             Your browser does not support the <code>audio</code> element.
         </audio>
@@ -14,11 +15,14 @@
         <div class="seek__progress" ref="progress"></div>
         <div class="seek__clickarea"></div>
     </div>
-    <h3>{{getCurrentSample.device.vendor }} - {{getCurrentSample.device.model }} </h3>
-        <h1>{{getCurrentSample.displayname }}: {{getCurrentSample.patchname}}</h1>
-        <button>TODO: send programchange to synth</button><br>
+    <h3>{{getCurrentSample.device.vendor }} - {{getCurrentSample.device.model }}
+    <span class="amount">({{getCurrentSample.device.patchSetName }})</span></h3>
+        <h1><span class="amount">{{getCurrentSample.displayname }}</span> {{getCurrentSample.patchname}}</h1>
         {{getCurrentSample.categories.join(', ') }}
-        
+        {{getCurrentSample.creator}}
+        <br><br>
+        <span class="btn" v-on:click="confirmSend">send to synth</span>&nbsp;
+        <span class="btn" v-on:click="replay">play again</span>
     </div>
 </template>
 <script>
@@ -88,6 +92,14 @@ export default {
             this.getCurrentSample.wavPeaks,
             this.waveformSettings.colors.green
         )
+    },
+    confirmSend() {
+        console.log("TODO: bank select + send program change to synthesizer")
+    },
+
+    replay() {
+        this.$refs.audio.currentTime = 0
+        this.$refs.audio.play()
     },
     /* TODO proper usage of transitions to have a smooth progress bar */
     onTimeUpdateListener(event) {
@@ -168,7 +180,10 @@ export default {
 }
 
 canvas {
-    height: 100px;
+    position: relative;
+    top: 10%;
+    height: 80%;
+    width: 100%;
 }
 .line .line__wave .seek__clickarea {
     position: absolute;
@@ -189,8 +204,7 @@ canvas {
     position: relative;
 }
 .line .line__wave {
-    background-color: #0b1130;
-    border-bottom: 2px solid #363b54;
+    background-color: #0a1a2d;
     flex-grow: 1;
     display: flex;
     justify-content: space-between;

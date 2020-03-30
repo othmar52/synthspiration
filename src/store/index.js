@@ -38,7 +38,8 @@ export default new Vuex.Store({
     },
     resultList: [],
     currentSample: {
-      device: {}
+      device: {},
+      categories: []
     }
   },
   mutations: {
@@ -65,8 +66,6 @@ export default new Vuex.Store({
       return
     },
     triggerLoadSample: function (context, sampleKey) {
-      console.log(this.state.bigData.jsonPaths[sampleKey])
-
 
       let that = this
       let scriptNode = document.createElement('script')
