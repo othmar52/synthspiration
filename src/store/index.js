@@ -23,7 +23,7 @@ function intersection() {
       }
     }
   }
-  return shuffle(result);
+  return result;
 }
 
 /**
@@ -38,6 +38,14 @@ function shuffle(a) {
       [a[i], a[j]] = [a[j], a[i]];
   }
   return a;
+}
+
+
+function rotateSample(state) {
+  // move from beginning to end
+  let nextKey = state.resultList.shift()
+  state.nextSampleKey = nextKey
+  state.resultList.push(nextKey)
 }
 
 
@@ -119,11 +127,8 @@ export default new Vuex.Store({
       totalActiveFilters += context.state.activeFilters.categories.active.length
       if (totalActiveFilters === 0) {
         // no filter set - return all
-        context.state.resultList = Object.keys(context.state.bigData.jsonPaths)
-        // move from beginning to end
-        let nextKey = context.state.resultList.shift()
-        context.state.nextSampleKey = nextKey
-        context.state.resultList.push(nextKey)
+        context.state.resultList = shuffle(Object.keys(context.state.bigData.jsonPaths))
+        rotateSample(context.state)
         return
       }
 
@@ -141,18 +146,16 @@ export default new Vuex.Store({
             resultLists.push(list[filter.direction]);
             continue;
           }
-          // within the same subject concat lists to achieve an "OR"-condition when calling intersect()
+          // within the same subject concat lists to achieve
+          // an "OR"-condition when calling intersect()
           singleFilterList = singleFilterList.concat(list[filter.direction]);
         }
         if (filter.direction === "white") {
           resultLists.push(singleFilterList);
         }
       }
-      context.state.resultList = intersection(resultLists)
-      // move from beginning to end
-      let nextKey = context.state.resultList.shift()
-      context.state.nextSampleKey = nextKey
-      context.state.resultList.push(nextKey)
+      context.state.resultList = shuffle(intersection(resultLists))
+      rotateSample(context.state)
     }
   },
   modules: {
