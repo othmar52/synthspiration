@@ -4,6 +4,7 @@
         <audio
             @durationchange='onDurationChangeListener'
             @timeupdate='onTimeUpdateListener'
+            @ended='onEndedListener'
             id="player0"
             class="player"
             ref="audio"
@@ -101,6 +102,12 @@ export default {
     replay() {
         this.$refs.audio.currentTime = 0
         this.$refs.audio.play()
+    },
+    onEndedListener(event) {
+        if(typeof this.$refs.progress === 'undefined') {
+            return;
+        }
+        this.$refs.progress.style.width = 0
     },
     
     onTimeUpdateListener(event) {
