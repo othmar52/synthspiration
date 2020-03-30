@@ -1,30 +1,12 @@
 <template>
   <div id="app">
-    <FilterSection />
-    <div class="content">
-      <h1 class="logo">Synthspiration</h1>
-      <RandomButton />
-      <Player />
-    </div>
     <router-view/>
   </div>
 </template>
 <script>
-import FilterSection from './components/FilterSection.vue'
-import Player from './components/Player.vue'
-import SampleList from './components/SampleList.vue'
-import RandomButton from './components/RandomButton.vue'
-import  { mapGetters } from 'vuex'
 export default {
-  name: 'App',
-  components: {
-    FilterSection,
-    SampleList,
-    RandomButton,
-    Player
-  }
+  name: 'App'
 }
-
 </script>
 <style>
 html, body, #app {
@@ -34,19 +16,7 @@ html, body, #app {
   text-align: center;
   color: #fff;
   background-color: #03030a;
-  height: calc(100% - 10px);
-}
-
-#app {
-  display: flex;
-}
-
-#app>div:first-child {
-  max-width: 50vw;
-}
-
-.content {
-  flex-grow: 1;
+  height: 100%;
 }
 
 h1 {
@@ -54,6 +24,7 @@ h1 {
   font-weight: bold;
   font-size: 3em;
 }
+
 h1.logo {
   color: #07101b;
   text-transform: uppercase;
@@ -71,8 +42,6 @@ h1.logo {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
-
-
 
 button, .btn {
 	background-color: #07101b;

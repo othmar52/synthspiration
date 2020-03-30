@@ -31,6 +31,7 @@ export default {
   name: 'Player',
   data: function(){
     return {
+      sampleId: String,
       currentSample: {
         devicePrefix: '',
         uniqueIdentifier: '',
@@ -101,8 +102,12 @@ export default {
         this.$refs.audio.currentTime = 0
         this.$refs.audio.play()
     },
-    /* TODO proper usage of transitions to have a smooth progress bar */
+    
     onTimeUpdateListener(event) {
+        if(typeof this.$refs.progress === 'undefined') {
+            return;
+        }
+        /* TODO proper usage of transitions to have a smooth progress bar */
         this.$refs.progress.style.transition = 'width 200ms linear'
         this.$refs.progress.style.width = event.target.currentTime/event.target.duration*100+'%'
     },

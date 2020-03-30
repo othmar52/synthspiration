@@ -4,6 +4,9 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 
+/**
+ * calculates intersection of two or more arrays
+ */
 function intersection() {
   let result = [];
   let lists = (arguments.length === 1) ? arguments[0] : arguments;
@@ -20,8 +23,23 @@ function intersection() {
       }
     }
   }
-  return result;
+  return shuffle(result);
 }
+
+/**
+ * Shuffles array in place. ES6 version
+ * thanks to https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
+ *
+ * @param {Array} a items An array containing the items.
+ */
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 
 export default new Vuex.Store({
   state: {
@@ -71,7 +89,7 @@ export default new Vuex.Store({
       let scriptNode = document.createElement('script')
       scriptNode.setAttribute('src', this.state.bigData.jsonPaths[sampleKey])
       document.head.appendChild(scriptNode)
-      
+
       window.sampleDataLoadInterval = window.setInterval(
         function(){
           if(typeof window.sampleData === "undefined") {
@@ -86,17 +104,9 @@ export default new Vuex.Store({
           // destroy the interval and init Vue app
           clearInterval(window.sampleDataLoadInterval)
           scriptNode.parentNode.removeChild(scriptNode);
-          //store.dispatch('setBigData', bigData)
-
-          //return
         },
         5
       );
-      
-
-
-      //context.dispatch('calculateResults')
-      //return
     },
     calculateResults: function (context) {
       let totalActiveFilters = context.state.activeFilters.devices.active.length
