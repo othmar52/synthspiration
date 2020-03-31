@@ -22,6 +22,22 @@ export default {
     FilterSection,
     RandomButton,
     Player
+  },
+  mounted(){
+    if( typeof this.$route.params.sampleId === 'undefined') {
+      return
+    }
+    this.loadSample(this.$route.params.sampleId)
+  },
+  watch: {
+    '$route.params.sampleId': function (sampleId) {
+      this.loadSample(sampleId)
+    }
+  },
+  methods: {
+    loadSample(sampleId) {
+      this.$store.dispatch('triggerLoadSample', sampleId )
+    }
   }
 }
 </script>

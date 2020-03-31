@@ -1,7 +1,8 @@
 <template>
 <div>
-    <router-link :to="`/sample/${getNextSampleKey}`">next: {{ getNextSampleKey }}</router-link>
-    <a class="btn btn-random" v-on:click="loadRandomSample">random <span class="amount">({{allMatchingSamples.length}})</span></a>
+    <router-link :to="`/sample/${getNextSampleKey}`" class="btn btn-random" :title="`next:${getNextSampleKey }`">
+    random <span class="amount">({{allMatchingSamples.length}})</span>
+    </router-link>
   </div>
 </template>
 <script>
