@@ -14,7 +14,6 @@
 import FilterSection from '@/components/FilterSection.vue'
 import Player from '@/components/Player.vue'
 import RandomButton from '@/components/RandomButton.vue'
-import  { mapGetters } from 'vuex'
 
 export default {
   name: 'Random',

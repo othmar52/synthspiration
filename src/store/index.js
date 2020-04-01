@@ -189,6 +189,12 @@ export default new Vuex.Store({
       }
       return state.bigData['devicConf'][valueArg].model
     },
+    getColorForFilter: (state) => (typeArg, valueArg) => {
+      if( typeArg !== 'devices' ) {
+        return valueArg
+      }
+      return state.bigData['devicConf'][valueArg].color
+    },
     getNextSampleKey: state => {
       return state.nextSampleKey
     }

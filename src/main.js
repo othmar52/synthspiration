@@ -24,7 +24,7 @@ window.initialDataLoadInterval = window.setInterval(
     // destroy the interval and init Vue app
     clearInterval(window.initialDataLoadInterval)
     bigDataNode.parentNode.removeChild(bigDataNode);
-    store.dispatch('setBigData', bigData)
+    store.dispatch('setBigData', bigData) // eslint-disable-line no-undef
 
     new Vue({
       router,

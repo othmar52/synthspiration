@@ -15,6 +15,7 @@
         v-for="(item,index) in filters"
         v-bind:group="group"
         v-bind:label="item"
+        v-bind:key="index"
         direction="white"
     ></SingleFilter>
   </div>
@@ -44,11 +45,11 @@ export default {
     group: String
   },
   methods: {
-    filterDirectionToggle:function(event) {
+    filterDirectionToggle:function() {
       this.direction = this.direction === 'white' ? 'black' : 'white';
       this.$store.dispatch('invertFilter', this)
     },
-    resetFilters:function(event) {
+    resetFilters:function() {
       // TODO: should we do a check if child is "SingleFilter"?
       for(let c of this.$children) {
         if( typeof c.active !== "undefined") {

@@ -1,29 +1,41 @@
 <template>
-    <div class="sample__player line">
-    <div class="line__wave" id="line__wave0">
-        <audio
-            @durationchange='onDurationChangeListener'
-            @timeupdate='onTimeUpdateListener'
-            @ended='onEndedListener'
-            id="player0"
-            class="player"
-            ref="audio"
-            :src="getCurrentSample.samplepath" autoplay>
-            Your browser does not support the <code>audio</code> element.
-        </audio>
-        <div id="waveform__wrapper" class="waveform__wrapper" ref="waveform">
+    <div>
+        <div class="sample__player line">
+            <div class="line__wave" id="line__wave0">
+                <audio
+                    @durationchange='onDurationChangeListener'
+                    @timeupdate='onTimeUpdateListener'
+                    @ended='onEndedListener'
+                    ref="audio"
+                    :src="getCurrentSample.samplepath" autoplay>
+                    Your browser does not support the <code>audio</code> element.
+                </audio>
+                <div id="waveform__wrapper" class="waveform__wrapper" ref="waveform"></div>
+                <div class="seek__progress" ref="progress"></div>
+                <div class="seek__clickarea"></div>
+            </div>
         </div>
-        <div class="seek__progress" ref="progress"></div>
-        <div class="seek__clickarea"></div>
-    </div>
-    <h3>{{getCurrentSample.device.vendor }} - {{getCurrentSample.device.model }}
-    <span class="amount">({{getCurrentSample.device.patchSetName }})</span></h3>
-        <h1><span class="amount">{{getCurrentSample.displayname }}</span> {{getCurrentSample.patchname}}</h1>
-        {{getCurrentSample.categories.join(', ') }}
-        {{getCurrentSample.creator}}
-        <br><br>
-        <span class="btn" v-on:click="confirmSend">send to synth</span>&nbsp;
-        <span class="btn" v-on:click="replay">play again</span>
+        <div class="sample__info">
+            <h3>
+                {{getCurrentSample.device.vendor }} - {{getCurrentSample.device.model }}
+                <span class="amount">({{getCurrentSample.device.patchSetName }})</span>
+            </h3>
+            <h1>
+                <span class="amount">{{getCurrentSample.displayname }}</span> {{getCurrentSample.patchname}}
+            </h1>
+            <p v-if="getCurrentSample.categories.length">
+                categories: {{getCurrentSample.categories.join(', ') }}
+            </p>
+            <p v-if="getCurrentSample.creator">
+                <span class="amount">
+                    created by {{getCurrentSample.creator}}
+                </span>
+            </p>
+            <p>
+                <span class="btn" v-on:click="confirmSend">send to synth</span>&nbsp;
+                <span class="btn" v-on:click="replay">play again</span>
+            </p>
+        </div>
     </div>
 </template>
 <script>
@@ -55,6 +67,7 @@ export default {
           uniquePrefix: '',
           vendor: '',
           model: '',
+          color: '',
           yearOfConstruction: 0,
           patchSetName: '',
           midiChannel: 0
@@ -73,7 +86,18 @@ export default {
             yellow: '#EFFE4B',
             pink: '#F8289E',
             cyan: '#00E5E5',
-            violet: '#9932CC'
+            violet: '#9932CC',
+
+            /* @see https://www.donaufischer.com/java/farbnamen.htm */
+            lawngreen: '#7CFC00',
+            darkgoldenrod: '#B8860B',
+            grey: '#808080',
+            teal: '#008080',
+            firebrick: '#B22222',
+            darkorange: '#FF8C00',
+            darkblue: '#00008B',
+            dodgerblue: '#1E90FF'
+
         }
       }
     }
@@ -92,18 +116,17 @@ export default {
         this.drawWaveform(
             this.$refs.waveform,
             this.getCurrentSample.wavPeaks,
-            this.waveformSettings.colors.green
+            this.waveformSettings.colors[ this.getCurrentSample.device.color ]
         )
     },
     confirmSend() {
-        console.log("TODO: bank select + send program change to synthesizer")
+        // console.log("TODO: bank select + send program change to synthesizer")
     },
-
     replay() {
         this.$refs.audio.currentTime = 0
         this.$refs.audio.play()
     },
-    onEndedListener(event) {
+    onEndedListener() {
         if(typeof this.$refs.progress === 'undefined') {
             return;
         }
@@ -146,7 +169,6 @@ export default {
             );
         }
         targetElement.appendChild(this.waveformSettings.canvas);
-
     },
 
     getMaxVal(inputArray) {
@@ -179,11 +201,8 @@ export default {
         }
         this.waveformSettings.context.fillRect(x, y, w, h);
     }
-
-
   }
 }
-
 </script>
 <style>
 .sample__player {

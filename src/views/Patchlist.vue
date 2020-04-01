@@ -3,10 +3,9 @@
     <h1>TODO: patchlist page</h1>
     <p>
       filter for devices<br>
-      list to all patches
+      list to all patches of selected device<br>
+      list of all CC's (not in database yet)
     </p>
-
-
     <SampleList />
   </div>
 </template>

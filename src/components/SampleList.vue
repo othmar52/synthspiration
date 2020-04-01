@@ -1,7 +1,7 @@
 <template>
     <div>
         <h2>samples: {{allMatchingSamples.length}}</h2>
-        <span v-for="(sampleKey) in allMatchingSamples">{{sampleKey}}</span>
+        <span v-for="(sampleKey,idx) in allMatchingSamples" :key="`${idx}`">{{sampleKey}}</span>
     </div>
 </template>
 <script>

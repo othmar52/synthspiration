@@ -1,5 +1,5 @@
 var path = require('path')
 module.exports = {
-  publicPath: './',
-  lintOnSave: false, // TODO remove as soon as tryout phase is finished
+  publicPath: './'
+  //lintOnSave: false, // disabled for development tryout purposes
 }
